@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Gerador de senhas" />
+    <meta name="author" content="Angela Caldas" />
+    <meta
+      property="og:url"
+      content="https://password-generator-angela.vercel.app/"
+    />
+    <meta property="og:locale" content="pt_BR" />
+    <meta
+      name="description"
+      content="Gerador de senhas com controle de número de caracteres, características da senha e 
+    força da senha."
+    />
+    <meta
+      property="og:description"
+      content="Gerador de senhas com controle de número de caracteres, características da senha e 
+    força da senha."
+    />
+    <meta property="og:image" content="./assets/img/og-image.png" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="./assets/img/unlock.svg" type="image/svg+xml" />
+    <title>Gerador de Senhas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="header container">
+      <img
+        src="./assets/img/unlock.svg"
+        alt=""
+        aria-hidden="true"
+        class="header_icon"
+      />
+      <h1 class="header_title">Gerador de senhas</h1>
+      <p class="header_subtitle">
+        Gere instantaneamente uma senha aleatória e segura
+      </p>
+    </header>
+
+    <main class="container">
+      <section class="password">
+        <label class="password_label">senha</label>
+        <p class="password_input" data-password></p>
+        <div class="password_actions">
+          <button
+            class="icon_btn"
+            title="Copiar senha para a área de transferência"
+            aria-label="Copiar senha para a área de transferência"
+            data-copy
+          >
+            <img src="./assets/img/copy.svg" alt="" aria-hidden="true" />
+          </button>
+          <button
+            class="icon_btn"
+            title="Atualizar senha"
+            aria-label="Atualizar senha"
+            data-refresh
+          >
+            <img src="./assets/img/refresh-cw.svg" alt="" aria-hidden="true" />
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <form class="form">
+          <h2 class="form_title">Personalize sua senha</h2>
+          <div class="form_range">
+            <label for="charLength" class="form_subtitle">
+              Número de caracteres
+            </label>
+            <input
+              id="charLength"
+              type="range"
+              min="6"
+              max="40"
+              value="12"
+              step="1"
+              data-char="slider"
+              aria-label="Use as teclas de seta para mudar o número de caracteres"
+            />
+            <input
+              type="number"
+              class="charLength"
+              data-char="input"
+              aria-label="Número de caracteres atual"
+              readonly
+            />
+          </div>
+
+          <fieldset class="form_fieldset">
+            <legend class="form_subtitle">Características da senha</legend>
+            <div class="form_fieldset-checkbox">
+              <input
+                id="uppercase"
+                name="traits"
+                type="checkbox"
+                data-check="upper"
+                checked
+              />
+              <label for="uppercase">Letras maiúsculas</label>
+            </div>
+            <div class="form_fieldset-checkbox">
+              <input
+                id="lowercase"
+                name="traits"
+                type="checkbox"
+                data-check="lower"
+                checked
+              />
+              <label for="lowercase">Letras minúsculas</label>
+            </div>
+            <div class="form_fieldset-checkbox">
+              <input
+                id="numbers"
+                name="traits"
+                type="checkbox"
+                data-check="number"
+                checked
+              />
+              <label for="numbers">Números</label>
+            </div>
+            <div class="form_fieldset-checkbox">
+              <input
+                id="symbols"
+                name="traits"
+                type="checkbox"
+                data-check="symbol"
+                checked
+              />
+              <label for="symbols">Símbolos</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form_fieldset">
+            <legend class="form_subtitle">Força da senha</legend>
+            <div class="form_strength" data-strength></div>
+            <div class="form_strength-legend">
+              <span>Fraca</span>
+              <span>Média</span>
+              <span>Forte</span>
+            </div>
+          </fieldset>
+        </form>
+
+        <button type="button" class="copy_btn" data-copy>Copiar senha</button>
+      </section>
+    </main>
+
+    <script type="module" src="./assets/js/index.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>
